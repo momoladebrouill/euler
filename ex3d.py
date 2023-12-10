@@ -20,6 +20,13 @@ V[0,:] = vmin
 V[nx-1,:] = vmax
 V[:,0] = vmin
 V[:,ny-1] = vmax
+def convertx(dim):
+    return int((dim-xmin)/(xmax-xmin)*nx)
+def converty(dim):
+    return int((dim-ymin)/(ymax-ymin)*ny)
+for y in range(converty(0.3),converty(0.6)):
+    V[convertx(0.3),y] = -vmax
+    V[convertx(0.6),y] = -vmax
 
 # fonction pour calculer l'erreur 
 def epsilon(V,Vnext):
